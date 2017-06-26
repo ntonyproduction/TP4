@@ -44,5 +44,6 @@ bouton4.pack(side = TOP)
 bouton5 = Button(fenetre1, text = "Crier", width = 15)
 bouton5.pack(side = TOP)
 
+#### Votre tp c'est laid #####
 # Activation de la méthode mainloop() pour garder le programme actif en permanence
 fenetre1.mainloop()
