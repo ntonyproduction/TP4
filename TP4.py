@@ -46,3 +46,5 @@ bouton5.pack(side = TOP)
 
 # Activation de la méthode mainloop() pour garder le programme actif en permanence
 fenetre1.mainloop()
+
+# PAGE 96, 97 DANS LE MANUEL POUR ALIGNER LES OBJETS DANS LA FENETRE (A FAIRE QUAND ON AURA DU TEMPS)
