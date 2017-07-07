@@ -12,7 +12,12 @@ class Util:
     TYPE_GUERRIER = "Guerrier"
 
     @staticmethod
-    def lire_fichier_personnages(fichier, liste_personnages):
+    def lire_fichier_personnages(fichier, liste_personnages): ## lit le fichier et mets chaque lignes dans la liste
+        fichier = open("fichier_de_personnages.txt", "r")
+        liste_personnages = [line.split(',') for line in fichier.readlines()]
+
+        return liste_personnages
+
         """
         Permet de lire un fichier de personnages reçu en entrée et de remplir la liste de personnages. Pour plus
         de détails, voir l'énoncé du travail. 
@@ -93,20 +98,4 @@ class Util:
 
         return string_temp
 
-fs = open("fichier_de_personnages.txt", "r")
-condition = True
-n = 0
-liste_personnage = []
-while condition == True:
-    n += 1
-    condition = "\n" in fs.readline()
-
-nbre_lignes = int(n - 1)
-
-i = 0
-while i <= nbre_lignes:
-    liste_personnage = liste_personnage + open("fichier_de_personnages.txt", "r").readlines(i)
-    i += 1
-
-print(liste_personnage)
-
+### Je ne sais pas commen caller la méthod statique
