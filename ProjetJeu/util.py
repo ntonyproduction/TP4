@@ -23,6 +23,8 @@ class Util:
         Returns:
 
         """
+
+
         try:
             pass
         except Exception:
@@ -90,3 +92,21 @@ class Util:
                 valide = True
 
         return string_temp
+
+fs = open("fichier_de_personnages.txt", "r")
+condition = True
+n = 0
+liste_personnage = []
+while condition == True:
+    n += 1
+    condition = "\n" in fs.readline()
+
+nbre_lignes = int(n - 1)
+
+i = 0
+while i <= nbre_lignes:
+    liste_personnage = liste_personnage + open("fichier_de_personnages.txt", "r").readlines(i)
+    i += 1
+
+print(liste_personnage)
+

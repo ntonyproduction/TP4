@@ -12,12 +12,17 @@ class GestionPersonnages:
         liste_personnages (list): La liste des personnages
         fichier_courant (str): Le nom du fichier courant
     """
+    def __init__(self, liste_personnages, fichier_courant):
+        self.liste_personnages = liste_personnages
+        self.fichier_courant = fichier_courant
+
     def mettre_a_jour_liste(self):
         """
         Mets à jour et trie la liste des personnages par rapport à l'énergie courante. 
         Returns (list str): La liste triée des chaînes de caractères des personnages
 
         """
+
 
     def gestion_creer_sorcier(self):
         """
@@ -137,3 +142,5 @@ class GestionPersonnages:
         """
         Permet de quitter l'application après confirmation de l'utilisateur.
         """
+
+objet = GestionPersonnages()
