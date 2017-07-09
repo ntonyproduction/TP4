@@ -12,9 +12,9 @@ class GestionPersonnages:
         liste_personnages (list): La liste des personnages
         fichier_courant (str): Le nom du fichier courant
     """
-    def __init__(self, liste_personnages, fichier_courant):
-        self.liste_personnages = liste_personnages
-        self.fichier_courant = fichier_courant
+    #def __init__(self, liste_personnages, fichier_courant):
+    #    self.liste_personnages = liste_personnages
+    #    self.fichier_courant = fichier_courant
 
     def mettre_a_jour_liste(self):
         """
@@ -31,6 +31,9 @@ class GestionPersonnages:
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
 
+        print("On a callé la méthode gestion_creer_sorcier")
+
+
     def saisir_et_creer_sorcier(self):
         """
         Retourne un objet Sorcier valide. Chaque information du sorcier demandée doit être validée. 
@@ -40,12 +43,17 @@ class GestionPersonnages:
         Return (Sorcier): Le sorcier instancié si la création a réussie, None sinon.
         """
 
+        return
+
+
     def gestion_creer_guerrier(self):
         """
         Crée un personnage sorcier si les informations du sorcier (méthode saisir_et_creer_sorcier) 
         sont valides, on ajoute le sorcier à la liste (méthode ajouter_personnage) et on affiche le message approprié.  
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
+
+        print("On a callé la méthode gestion_creer_guerrier")
 
     def saisir_et_creer_guerrier(self):
         """
@@ -64,7 +72,7 @@ class GestionPersonnages:
         """
 
 
-    def gestion_attaquer(self, index):
+    def gestion_attaquer(self): # ajouter index en argument
         """
         Reçoit l’indice du personnage sélectionné ou -1 si aucun personnage n’est sélectionné.  
         Si le personnage sélectionné n’est pas mort, on saisit avec validation la force de l’attaque 
@@ -76,8 +84,9 @@ class GestionPersonnages:
             index (int): L'indice du personnage sélectionné ou -1 si aucun n'est sélectionné. 
         """
 
+        print("On a callé la méthode gestion_attaquer")
 
-    def gestion_augmenter_energie(self, index):
+    def gestion_augmenter_energie(self): # ajouter index en argument
         """
         Reçoit l’indice du personnage sélectionné ou -1 si aucun personnage n’est sélectionné.  
         Si le personnage sélectionné n’est pas mort, réinitialiser son énergie. S’il n’y a aucun personnage 
@@ -86,8 +95,9 @@ class GestionPersonnages:
             index (int): L'indice du personnage sélectionné ou -1 si aucun n'est sélectionné. 
         """
 
+        print("On a callé la méthode gestion_augmenter_energie")
 
-    def gestion_crier(self, index):
+    def gestion_crier(self): # ajouter index en argument
         """
         Reçoit l’indice du personnage sélectionné ou -1 si aucun personnage n’est sélectionné.  
         Si le personnage sélectionné n’est pas mort, émettre son cri.  S’il n’y a aucun personnage sélectionné ou 
@@ -96,6 +106,7 @@ class GestionPersonnages:
             index (int): L'indice du personnage sélectionné ou -1 si aucun n'est sélectionné. 
         """
 
+        print("On a callé la méthode gestion_crier")
 
     def gestion_ouvrir(self):
         """
@@ -108,6 +119,8 @@ class GestionPersonnages:
         un message d’erreur est affiché.
         """
 
+        print("On a callé la méthode gestion_ouvrir")
+
     def gestion_enregistrer(self):
         """
         Permet de gérer l'enregistrement d'une liste de personnages dans le fichier courant.  
@@ -117,7 +130,7 @@ class GestionPersonnages:
         on enregistre dans un nouveau fichier en appelant la méthode (gestion_enregistrer_sous). 
         """
 
-
+        print("On a callé la méthode gestion_enregistrer")
 
     def gestion_enregistrer_sous(self):
         """
@@ -127,7 +140,7 @@ class GestionPersonnages:
         Afficher un message personnalisé s’il y a erreur lors de la sauvegarde ou si la sauvegarde est ok.
         """
 
-
+        print("On a callé la méthode gestion_enregistrer_sous")
 
     def gestion_fermer(self):
         """
@@ -137,10 +150,10 @@ class GestionPersonnages:
         La liste est vidée et le fichier courant devient null.
         """
 
+        print("On a callé la méthode gestion_fermer")
+
 
     def gestion_quitter(self):
         """
         Permet de quitter l'application après confirmation de l'utilisateur.
         """
-
-objet = GestionPersonnages()
