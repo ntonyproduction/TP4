@@ -104,9 +104,3 @@ class Util:
                 valide = True
 
         return string_temp
-
-file = open("fichier_de_personnages.txt", "a")
-file.write("\nSorcier;Anthony;6;6;18")
-file.close()
-file = open("fichier_de_personnages.txt", "r")
-print(file.read())

@@ -1,12 +1,6 @@
 def doNothing():
     print("C'est juste un test pour le drop down menu.")
 
-def creersorcier(): ##fenetre qui demandera saisie à l'utilisateur pour le sorcier
-    fenetre2 = Tk()
-
-def creerguerrier(): ## fenetre qui demandera saisie à l'utilisateur pour le guerrier
-    fenetre3 = Tk()
-
 # Importe les classes contenues dans le module tkinter
 from tkinter import *
 
@@ -29,10 +23,10 @@ texte1 = Label(fenetre1, text = "La fenêtre principal se tient ici.", fg = "red
 texte1.pack(side = LEFT) # Activation de la méthode pack()
 
 # Création d'un objet/widget avec la classe Button()
-bouton1 = Button(fenetre1, text = "Créer un sorcier", width = 15,command = creersorcier)
+bouton1 = Button(fenetre1, text = "Créer un sorcier", width = 15)
 bouton1.pack(side = TOP) # Activation de la méthode pack()
 
-bouton2 = Button(fenetre1, text = "Créer un guerrier", width = 15, command=creerguerrier)
+bouton2 = Button(fenetre1, text = "Créer un guerrier", width = 15)
 bouton2.pack(side = TOP)
 
 bouton3 = Button(fenetre1, text = "Attaquer", width = 15)
