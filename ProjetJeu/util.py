@@ -2,6 +2,8 @@ from tkinter.filedialog import *
 from tkinter import simpledialog
 from sorcier import Sorcier
 from guerrier import Guerrier
+import csv
+
 
 
 class Util:
@@ -13,8 +15,9 @@ class Util:
 
     @staticmethod
     def lire_fichier_personnages(fichier, liste_personnages): ## lit le fichier et mets chaque lignes dans la liste
-        fichier = open("fichier_de_personnages.txt", "r")
-        liste_personnages = [line.split(',') for line in fichier.readlines()]
+
+        file = open(fichier, "r")
+        liste_personnages = [line.split(';') for line in file.readlines()]
 
         return liste_personnages
 
@@ -46,7 +49,11 @@ class Util:
             fichier: 
             liste_personnages: 
         """
-        pass
+
+        file = open(str(fichier), "a")
+        file.write(str(liste_personnages))
+        file.close()
+
 
     @staticmethod
     def saisir_objet_entier(question):
@@ -98,4 +105,8 @@ class Util:
 
         return string_temp
 
-### Je ne sais pas commen caller la méthod statique
+file = open("fichier_de_personnages.txt", "a")
+file.write("\nSorcier;Anthony;6;6;18")
+file.close()
+file = open("fichier_de_personnages.txt", "r")
+print(file.read())

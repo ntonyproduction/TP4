@@ -1,7 +1,6 @@
 
 from tkinter import *
 from tkinter.filedialog import *
-
 from gestion_personnages import GestionPersonnages
 
 
