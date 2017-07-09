@@ -14,7 +14,7 @@ class GestionPersonnages:
     """
     #def __init__(self, liste_personnages, fichier_courant):
     #    self.liste_personnages = liste_personnages
-    #    self.fichier_courant = fichier_courant
+    #    self.fichier_courant = str(fichier_courant)
 
     def mettre_a_jour_liste(self):
         """
@@ -24,6 +24,7 @@ class GestionPersonnages:
         """
 
 
+
     def gestion_creer_sorcier(self):
         """
         Crée un personnage sorcier si les informations du sorcier (méthode saisir_et_creer_sorcier) 
@@ -31,7 +32,7 @@ class GestionPersonnages:
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
 
-        print("On a callé la méthode gestion_creer_sorcier")
+        Util.saisir_string("Quel est le nom du sorcier (entre 3 à 30)?")
 
 
     def saisir_et_creer_sorcier(self):
@@ -53,7 +54,7 @@ class GestionPersonnages:
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
 
-        print("On a callé la méthode gestion_creer_guerrier")
+        Util.saisir_string("Quel est le nom du guerrier (entre 3 à 30)?")
 
     def saisir_et_creer_guerrier(self):
         """

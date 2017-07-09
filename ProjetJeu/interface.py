@@ -21,6 +21,7 @@ class Interface(Frame):
 
     fenetre1 = Tk()
 
+
     menu_fichier = Menu(fenetre1)
     fenetre1.config(menu=menu_fichier)
 
@@ -32,7 +33,7 @@ class Interface(Frame):
     subMenu1.add_command(label="Fermer", command=gp.gestion_fermer)
     subMenu1.add_command(label="Quitter", command=fenetre1.quit)
 
-    texte1 = Label(fenetre1, text="La fenêtre principal se tient ici.", fg="red")
+    texte1 = Listbox(fenetre1, height=15, width=25, bg="light grey")
     texte1.pack(side=LEFT)
 
     bouton1 = Button(fenetre1, text="Créer un sorcier", width=15, command=gp.gestion_creer_sorcier)

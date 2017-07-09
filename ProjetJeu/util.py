@@ -2,7 +2,7 @@ from tkinter.filedialog import *
 from tkinter import simpledialog
 from sorcier import Sorcier
 from guerrier import Guerrier
-import csv
+from personnage import Personnage
 
 
 
@@ -14,12 +14,7 @@ class Util:
     TYPE_GUERRIER = "Guerrier"
 
     @staticmethod
-    def lire_fichier_personnages(fichier, liste_personnages): ## lit le fichier et mets chaque lignes dans la liste
-
-        file = open(fichier, "r")
-        liste_personnages = [line.split(';') for line in file.readlines()]
-
-        return liste_personnages
+    def lire_fichier_personnages(fichier, liste_personnages=[]): ## lit le fichier et mets chaque lignes dans la liste
 
         """
         Permet de lire un fichier de personnages reçu en entrée et de remplir la liste de personnages. Pour plus
@@ -34,8 +29,11 @@ class Util:
 
 
         try:
-            pass
-        except Exception:
+            file = open(fichier, "r")
+            liste_personnages = [line.split(';') for line in file.readlines()]
+
+            return True
+        except IOError:
             print(sys.stderr, "erreur d'execution dans gestionOuvrir")
             sys.exit(1)
 
@@ -51,6 +49,7 @@ class Util:
         """
 
         file = open(str(fichier), "a")
+        file.write("\n")
         file.write(str(liste_personnages))
         file.close()
 
@@ -93,6 +92,8 @@ class Util:
         """
         string_temp = ""
 
+        pers = Personnage()
+
         valide = False
 
         while string_temp == "" and not valide:
@@ -100,7 +101,11 @@ class Util:
 
             if string_temp == "":
                 print("aucune saisie")
+            elif pers.valider_nom(string_temp) == False:
+                print("Le nom n'est pas valide")
+                string_temp = ""
             else:
                 valide = True
 
         return string_temp
+
