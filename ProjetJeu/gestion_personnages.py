@@ -6,23 +6,27 @@ from sorcier import Sorcier
 from guerrier import Guerrier
 
 class GestionPersonnages:
+
+    def __init__(self, liste_personnages, fichier_courant):
+        self.liste_personnages = liste_personnages
+        self.fichier_courant = fichier_courant
+
     """
     Classe s'occupant de la gestion des personnages.
     Attributes:
         liste_personnages (list): La liste des personnages
         fichier_courant (str): Le nom du fichier courant
     """
-    #def __init__(self, liste_personnages, fichier_courant):
-    #    self.liste_personnages = liste_personnages
-    #    self.fichier_courant = str(fichier_courant)
 
     def mettre_a_jour_liste(self):
+        self.liste_personnages = sorted(self.liste_personnages, key=lambda x: int(x[3]))
+        return self.liste_personnages
+
         """
         Mets à jour et trie la liste des personnages par rapport à l'énergie courante. 
         Returns (list str): La liste triée des chaînes de caractères des personnages
 
         """
-
 
 
     def gestion_creer_sorcier(self):
@@ -32,7 +36,7 @@ class GestionPersonnages:
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
 
-        Util.saisir_string("Quel est le nom du sorcier (entre 3 à 30)?")
+        print("On a callé la méthode gestion_creer_sorcier")
 
 
     def saisir_et_creer_sorcier(self):
@@ -54,7 +58,7 @@ class GestionPersonnages:
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
 
-        Util.saisir_string("Quel est le nom du guerrier (entre 3 à 30)?")
+        print("On a callé la méthode gestion_creer_guerrier")
 
     def saisir_et_creer_guerrier(self):
         """
@@ -158,3 +162,4 @@ class GestionPersonnages:
         """
         Permet de quitter l'application après confirmation de l'utilisateur.
         """
+
