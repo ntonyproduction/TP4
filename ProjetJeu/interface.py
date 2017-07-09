@@ -21,6 +21,7 @@ class Interface(Frame):
 
     fenetre1 = Tk()
 
+
     menu_fichier = Menu(fenetre1)
     fenetre1.config(menu=menu_fichier)
 

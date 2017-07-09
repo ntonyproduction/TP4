@@ -57,6 +57,7 @@ class Util:
 
     @staticmethod
     def saisir_objet_entier(question):
+
         """
         Permet de demander la saisie d'un entier et de le valider
         Args:
@@ -65,6 +66,7 @@ class Util:
         Returns (int): L'entier saisi
 
         """
+
         objet_entier = -1
 
         valide = False
