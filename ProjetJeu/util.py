@@ -2,7 +2,7 @@ from tkinter.filedialog import *
 from tkinter import simpledialog
 from sorcier import Sorcier
 from guerrier import Guerrier
-import csv
+from personnage import Personnage
 
 
 
@@ -13,6 +13,17 @@ class Util:
     TYPE_SORCIER = "Sorcier"
     TYPE_GUERRIER = "Guerrier"
 
+    """
+            Permet de lire un fichier de personnages reçu en entrée et de remplir la liste de personnages. Pour plus
+            de détails, voir l'énoncé du travail. 
+            Args:
+                fichier (str): Le nom du fichier à lire 
+                liste_personnages (list): La liste de personnages que la méthode doit remplir.  
+
+            Returns:
+
+            """
+
     @staticmethod
     def lire_fichier_personnages(fichier, liste_personnages): ## lit le fichier et mets chaque lignes dans la liste
 
@@ -21,21 +32,12 @@ class Util:
 
         return liste_personnages
 
-        """
-        Permet de lire un fichier de personnages reçu en entrée et de remplir la liste de personnages. Pour plus
-        de détails, voir l'énoncé du travail. 
-        Args:
-            fichier (str): Le nom du fichier à lire 
-            liste_personnages (list): La liste de personnages que la méthode doit remplir.  
-
-        Returns:
-
-        """
-
-
         try:
-            pass
-        except Exception:
+            file = open(fichier, "r")
+            liste_personnages = [line.split(';') for line in file.readlines()]
+
+            return True
+        except IOError:
             print(sys.stderr, "erreur d'execution dans gestionOuvrir")
             sys.exit(1)
 
@@ -51,6 +53,7 @@ class Util:
         """
 
         file = open(str(fichier), "a")
+        file.write("\n")
         file.write(str(liste_personnages))
         file.close()
 
@@ -95,6 +98,8 @@ class Util:
         """
         string_temp = ""
 
+        pers = Personnage()
+
         valide = False
 
         while string_temp == "" and not valide:
@@ -102,6 +107,9 @@ class Util:
 
             if string_temp == "":
                 print("aucune saisie")
+            elif pers.valider_nom(string_temp) == False:
+                print("Le nom n'est pas valide")
+                string_temp = ""
             else:
                 valide = True
 

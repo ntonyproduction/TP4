@@ -7,9 +7,9 @@ from guerrier import Guerrier
 
 class GestionPersonnages:
 
-    def __init__(self, liste_personnages, fichier_courant):
-        self.liste_personnages = liste_personnages
-        self.fichier_courant = fichier_courant
+    #def __init__(self, liste_personnages, fichier_courant):
+    #    self.liste_personnages = liste_personnages
+    #    self.fichier_courant = str(fichier_courant)
 
     """
     Classe s'occupant de la gestion des personnages.
@@ -36,7 +36,7 @@ class GestionPersonnages:
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
 
-        print("On a callé la méthode gestion_creer_sorcier")
+        Util.saisir_string("Quel est le nom du sorcier (entre 3 à 30)?")
 
 
     def saisir_et_creer_sorcier(self):
@@ -48,7 +48,7 @@ class GestionPersonnages:
         Return (Sorcier): Le sorcier instancié si la création a réussie, None sinon.
         """
 
-        return
+        print("On a callé la méthode gestion_creer_sorcier")
 
 
     def gestion_creer_guerrier(self):
@@ -58,7 +58,7 @@ class GestionPersonnages:
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
 
-        print("On a callé la méthode gestion_creer_guerrier")
+        Util.saisir_string("Quel est le nom du guerrier (entre 3 à 30)?")
 
     def saisir_et_creer_guerrier(self):
         """
