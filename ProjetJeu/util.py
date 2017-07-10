@@ -81,7 +81,7 @@ class Util:
                 objet_entier = int(objet_entier)
                 valide = True
             except ValueError:
-                print("aucune sasie")
+                print("aucune saisie")
 
         return objet_entier
 

@@ -35,8 +35,47 @@ class GestionPersonnages:
         sont valides, on ajoute le sorcier à la liste (méthode ajouter_personnage) et on affiche le message approprié.  
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
+        pers = Personnage()
+        sorc = Sorcier("", 10, 10, 10)
+        valide = False
 
-        Util.saisir_string("Quel est le nom du sorcier (entre 3 à 30)?")
+        self.nom_sorcier = Util.saisir_string("Quel est le nom du sorcier (entre 3 et 30)?")
+
+        self.energie_depart_sorcier = Util.saisir_objet_entier("Quel est l'énergie de départ du sorcier (entre 1 et 100)?")
+
+        while valide == False:
+            if pers.valider_energie_depart(self.energie_depart_sorcier) == False:
+                self.energie_depart_sorcier = Util.saisir_objet_entier("Quel est l'énergie de départ du sorcier (entre 1 et 100)?")
+                valide = False
+                print("La valeur saisie n'est pas valide.")
+            else:
+                valide = True
+
+        self.energie_courante_sorcier = Util.saisir_objet_entier("Quel est l'énergie courante du sorcier (entre 1 et 100)?")
+
+        valide = False
+
+        while valide == False:
+            if pers.valider_energie_courante(self.energie_courante_sorcier) == False:
+                self.energie_courante_sorcier = Util.saisir_objet_entier("Quel est l'énergie courante du sorcier (entre 1 et 100)?")
+                valide = False
+                print("La valeur saisie n'est pas valide.")
+            else:
+                valide = True
+
+        self.nbre_charmes_sorcier = Util.saisir_objet_entier("Quel est le nombre de charmes du sorcier (entre 0 et 20)?")
+
+        valide = False
+
+        while valide == False:
+            if sorc.valider_nbr_charmes(self.nbre_charmes_sorcier) == False:
+                self.nbre_charmes_sorcier = Util.saisir_objet_entier("Quel est le nombre de charmes du sorcier (entre 0 et 20)?")
+                valide = False
+                print("La valeur saisie n'est pas valide.")
+            else:
+                valide = True
+
+        print(self.nom_sorcier, self.energie_depart_sorcier, self.energie_courante_sorcier, self.nbre_charmes_sorcier)
 
 
     def saisir_et_creer_sorcier(self):
@@ -58,7 +97,9 @@ class GestionPersonnages:
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
 
-        Util.saisir_string("Quel est le nom du guerrier (entre 3 à 30)?")
+        self.nom_guerrier = Util.saisir_string("Quel est le nom du guerrier (entre 3 à 30)?")
+        self.energie_depart_guerrier = Util.saisir_objet_entier("Quel est l'énergie de départ du guerrier (entre 1 et 100)?")
+        self.energie_courante_guerrier = Util.saisir_objet_entier("Quel est l'énergie courante du guerrier (entre 1 et 100)?")
 
     def saisir_et_creer_guerrier(self):
         """
