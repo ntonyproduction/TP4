@@ -75,7 +75,11 @@ class GestionPersonnages:
             else:
                 valide = True
 
-        print(self.nom_sorcier, self.energie_depart_sorcier, self.energie_courante_sorcier, self.nbre_charmes_sorcier)
+        Perso = ["sorcier", self.nom_sorcier, self.energie_depart_sorcier, self.energie_courante_sorcier, self.nbre_charmes_sorcier]
+
+        testing = GestionPersonnages()
+        phrase = testing.ajouter_personnage(personnage=Perso)
+        messagebox.showinfo("Ajout d'un sorcier", "Le nouveau sorcier a été ajouté à la liste.")
 
 
     def saisir_et_creer_sorcier(self):
@@ -137,7 +141,12 @@ class GestionPersonnages:
             else:
                 valide = True
 
-        print(self.nom_guerrier, self.energie_depart_guerrier, self.energie_courante_guerrier, self.nbre_force_guerrier)
+        Perso = ["guerrier", self.nom_guerrier, self.energie_depart_guerrier, self.energie_courante_guerrier,self.nbre_force_guerrier]
+
+        testing = GestionPersonnages()
+        phrase = testing.ajouter_personnage(personnage=Perso)
+
+        messagebox.showinfo("Ajout d'un guerrier", "Le nouveau guerrier a été ajouté à la liste.")
 
     def saisir_et_creer_guerrier(self):
         """
@@ -154,6 +163,13 @@ class GestionPersonnages:
         Args:
             personnage (Personnage): Le personnage à ajouter. 
         """
+
+        if personnage[0] == "guerrier":
+            guer = Guerrier(personnage[1], personnage[2], personnage[3], personnage[4])
+            return guer.to_string()
+        elif personnage[0] == "sorcier":
+            sorc = Sorcier(personnage[1], personnage[2], personnage[3], personnage[4])
+            return sorc.to_string()
 
 
     def gestion_attaquer(self): # ajouter index en argument

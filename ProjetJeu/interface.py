@@ -33,8 +33,8 @@ class Interface(Frame):
     subMenu1.add_command(label="Fermer", command=gp.gestion_fermer)
     subMenu1.add_command(label="Quitter", command=fenetre1.quit)
 
-    texte1 = Listbox(fenetre1, height=15, width=25, bg="light grey")
-    texte1.pack(side=LEFT)
+    Lb1 = Listbox(fenetre1, height=15, width=25, bg="light grey")
+    Lb1.pack(side=LEFT)
 
     bouton1 = Button(fenetre1, text="Créer un sorcier", width=15, command=gp.gestion_creer_sorcier)
     bouton1.pack(side=TOP)
