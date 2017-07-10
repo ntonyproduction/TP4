@@ -2,7 +2,8 @@
 ### Anthony Gagnon
 #constantes
 
-energie_depart_defaut = 20
+
+energie_depart_defaut = 20 ##dit qu'il manquait Énergie_départ_défaut et energie_max en attributs
 energie_depart_min = 1
 energie_max = 100
 longueur_nom_min = 3

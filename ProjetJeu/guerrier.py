@@ -1,5 +1,8 @@
 #constantes
+
 import math
+from personnage import Personnage
+
 force_defaut = 20
 force_max = 80
 perte_force_defaut = 2
@@ -7,11 +10,10 @@ gain_force_defaut = 10
 force = 0
 
 
-class Guerrier():
+class Guerrier(Personnage):  ###ajout qui fait en sorte que la classe Guerrier herite de la classe Personnage
 
     def __init__(self, nom, energie_depart, energie, force=force_defaut): # tester
-        self.nom = str(nom)
-        self.energie_depart = int(energie_depart)
+        Personnage.__init__(self, nom, energie_depart) ###Vient chercher les noms et énergie de départ de classe person
         self.energie=int(energie)
         force_guerrier = self.set_force(int(force))
 

@@ -2,16 +2,18 @@
 
 #constantes
 
+from personnage import Personnage
+
+
 nbr_charmes_defaut = 20
 nbr_charmes_max = 20
 nbr_charmes = 0
 
 
-class Sorcier( ):
+class Sorcier(Personnage):  ### ajout qui fait en sorte que la classe Sorcier Hérite de la classe personnage
 
     def __init__(self, nom, energie_depart, energie, nbr_charmes=nbr_charmes_defaut): # tester
-        self.nom = str(nom)
-        self.energie_depart = int(energie_depart)
+        Personnage.__init__(self, nom, energie_depart)
         self.energie = int(energie)
         nbr_charmes_sorcier = self.set_nbr_charmes(int(nbr_charmes))
 
