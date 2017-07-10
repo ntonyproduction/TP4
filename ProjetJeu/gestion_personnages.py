@@ -97,9 +97,47 @@ class GestionPersonnages:
         Sinon, on affiche seulement que le sorcier n’a pas été ajouté.
         """
 
+        pers = Personnage()
+        guer = Guerrier("", 10, 10, 10)
+        valide = False
+
         self.nom_guerrier = Util.saisir_string("Quel est le nom du guerrier (entre 3 à 30)?")
+
         self.energie_depart_guerrier = Util.saisir_objet_entier("Quel est l'énergie de départ du guerrier (entre 1 et 100)?")
+
+        while valide == False:
+            if pers.valider_energie_depart(self.energie_depart_guerrier) == False:
+                self.energie_depart_guerrier = Util.saisir_objet_entier("Quel est l'énergie de départ du guerrier (entre 1 et 100)?")
+                valide = False
+                print("La valeur saisie n'est pas valide.")
+            else:
+                valide = True
+
         self.energie_courante_guerrier = Util.saisir_objet_entier("Quel est l'énergie courante du guerrier (entre 1 et 100)?")
+
+        valide = False
+
+        while valide == False:
+            if pers.valider_energie_courante(self.energie_courante_guerrier) == False:
+                self.energie_courante_guerrier = Util.saisir_objet_entier("Quel est l'énergie courante du guerrier (entre 1 et 100)?")
+                valide = False
+                print("La valeur saisie n'est pas valide.")
+            else:
+                valide = True
+
+        self.nbre_force_guerrier = Util.saisir_objet_entier("Quel est le nombre de force du guerrier (entre 0 et 80)?")
+
+        valide = False
+
+        while valide == False:
+            if guer.valider_force(self.nbre_force_guerrier) == False:
+                self.nbre_force_guerrier = Util.saisir_objet_entier("Quel est le nombre de force du guerrier (entre 0 et 80)?")
+                valide = False
+                print("La valeur saisie n'est pas valide.")
+            else:
+                valide = True
+
+        print(self.nom_guerrier, self.energie_depart_guerrier, self.energie_courante_guerrier, self.nbre_force_guerrier)
 
     def saisir_et_creer_guerrier(self):
         """

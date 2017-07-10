@@ -37,7 +37,7 @@ class Guerrier():
 
 
     def valider_force(self, force): # tester
-        if int(force) > 0 and int(force) < force_max:
+        if int(force) > 0 and int(force) <= force_max:
             return True
         else:
             return False
