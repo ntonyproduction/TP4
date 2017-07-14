@@ -4,6 +4,7 @@ from tkinter.filedialog import *
 from gestion_personnages import GestionPersonnages
 
 
+
 class Interface(Frame):
     """
     Classe héritant d'un Frame de TKInter et permetant d'afficher et de gérer l'interface graphique.
@@ -31,7 +32,7 @@ class Interface(Frame):
     subMenu1.add_command(label="Enregistrer", command=gp.gestion_enregistrer)
     subMenu1.add_command(label="Enregistrer Sous...", command=gp.gestion_enregistrer_sous)
     subMenu1.add_command(label="Fermer", command=gp.gestion_fermer)
-    subMenu1.add_command(label="Quitter", command=fenetre1.quit)
+    subMenu1.add_command(label="Quitter", command=gp.gestion_quitter)
 
     Lb1 = Listbox(fenetre1, height=15, width=25, bg="light grey")
     Lb1.pack(side=LEFT)

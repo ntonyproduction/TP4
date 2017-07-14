@@ -1,9 +1,10 @@
 from tkinter.filedialog import *
-from tkinter import messagebox, filedialog
+from tkinter import messagebox, filedialog,
 from util import Util
 from personnage import Personnage
 from sorcier import Sorcier
 from guerrier import Guerrier
+
 
 class GestionPersonnages:
 
@@ -180,7 +181,7 @@ class GestionPersonnages:
             return sorc.to_string()
 
 
-    def gestion_attaquer(self): # ajouter index en argument
+    def gestion_attaquer(self,index): # ajouter index en argument
         """
         Reçoit l’indice du personnage sélectionné ou -1 si aucun personnage n’est sélectionné.  
         Si le personnage sélectionné n’est pas mort, on saisit avec validation la force de l’attaque 
@@ -212,7 +213,7 @@ class GestionPersonnages:
 
         print("On a callé la méthode gestion_augmenter_energie")
 
-    def gestion_crier(self): # ajouter index en argument
+    def gestion_crier(self,index): # ajouter index en argument
         """
         Reçoit l’indice du personnage sélectionné ou -1 si aucun personnage n’est sélectionné.  
         Si le personnage sélectionné n’est pas mort, émettre son cri.  S’il n’y a aucun personnage sélectionné ou 
@@ -225,11 +226,10 @@ class GestionPersonnages:
 
     def gestion_ouvrir(self):
 
-        return filedialog.askopenfilename()
+        self.file = filedialog.askopenfilename()
+        with open(self.file, 'r') as UseFile:
+            UseFile.read()
 
-        button = ttk.Button(interface, text="Open", command=openfile)
-
-        button.grid(column=1, row=1)
 
         """
         Permet de gérer l'ouverture et la lecture d'un fichier de personnages 
@@ -245,12 +245,8 @@ class GestionPersonnages:
 
     def gestion_enregistrer(self):
 
-        f = filedialog.asksaveasfile(mode='w', defaultextension=".txt")
-        if f is None:
-            return
-        text2save = str(text.get(1.0, END))
-        f.write(text2save)
-        f.close()
+        self.file = filedialog.asksaveasfile(mode='w', defaultextension=".txt")
+
 
 
         """
@@ -264,6 +260,7 @@ class GestionPersonnages:
         print("On a callé la méthode gestion_enregistrer")
 
     def gestion_enregistrer_sous(self):
+
         f = filedialog.asksaveasfile(mode='w', defaultextension=".txt")
         if f is None:
             return
@@ -283,7 +280,6 @@ class GestionPersonnages:
     def gestion_fermer(self):
 
 
-
         """
         Permet de fermer le fichier courant. Si la liste n'est pas vide et que l'utilisateur veut sauvegarder ses 
         données, enregistrer les données de la liste dans le fichier courant (gestion_enregistrer) ou dans un 
@@ -293,8 +289,11 @@ class GestionPersonnages:
 
         print("On a callé la méthode gestion_fermer")
 
-
     def gestion_quitter(self):
+
+        result = messagebox.askquestion("Gestion personnage", "Voulez vous vraiment quitter le programme?")
+        if result == 'yes':
+
 
         """
         Permet de quitter l'application après confirmation de l'utilisateur.
