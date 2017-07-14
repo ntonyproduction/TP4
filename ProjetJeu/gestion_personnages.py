@@ -158,6 +158,8 @@ class GestionPersonnages:
         """
 
     def ajouter_personnage(self, personnage):
+
+
         """
         Ajoute le Personnage à la liste.
         Args:
@@ -186,7 +188,14 @@ class GestionPersonnages:
 
         print("On a callé la méthode gestion_attaquer")
 
-    def gestion_augmenter_energie(self): # ajouter index en argument
+    def gestion_augmenter_energie(self,index): # ajouter index en argument
+
+
+        index = self.energie_courante_guerrier
+
+        if index > 0 :
+            index= Guerrier.reset_energie()
+
         """
         Reçoit l’indice du personnage sélectionné ou -1 si aucun personnage n’est sélectionné.  
         Si le personnage sélectionné n’est pas mort, réinitialiser son énergie. S’il n’y a aucun personnage 
@@ -254,6 +263,7 @@ class GestionPersonnages:
 
 
     def gestion_quitter(self):
+
         """
         Permet de quitter l'application après confirmation de l'utilisateur.
         """
