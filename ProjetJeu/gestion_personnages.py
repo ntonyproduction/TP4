@@ -1,5 +1,5 @@
 from tkinter.filedialog import *
-from tkinter import messagebox
+from tkinter import messagebox, filedialog
 from util import Util
 from personnage import Personnage
 from sorcier import Sorcier
@@ -80,9 +80,15 @@ class GestionPersonnages:
         testing = GestionPersonnages()
         phrase = testing.ajouter_personnage(personnage=Perso)
         messagebox.showinfo("Ajout d'un sorcier", "Le nouveau sorcier a été ajouté à la liste.")
+        Listbox.insert(1,Perso)
 
 
     def saisir_et_creer_sorcier(self):
+
+        return  Sorcier.__init__(self, nom, energie_depart, energie, nbr_charmes = nbr_charmes_defaut)
+
+
+
         """
         Retourne un objet Sorcier valide. Chaque information du sorcier demandée doit être validée. 
         L’annulation d’une info entraine automatiquement l’annulation des informations suivantes.  
@@ -218,6 +224,13 @@ class GestionPersonnages:
         print("On a callé la méthode gestion_crier")
 
     def gestion_ouvrir(self):
+
+        return filedialog.askopenfilename()
+
+        button = ttk.Button(interface, text="Open", command=openfile)
+
+        button.grid(column=1, row=1)
+
         """
         Permet de gérer l'ouverture et la lecture d'un fichier de personnages 
         (un fichier .txt qui contient des informations sur des personnages, un personnage par ligne).  
@@ -231,6 +244,15 @@ class GestionPersonnages:
         print("On a callé la méthode gestion_ouvrir")
 
     def gestion_enregistrer(self):
+
+        f = filedialog.asksaveasfile(mode='w', defaultextension=".txt")
+        if f is None:
+            return
+        text2save = str(text.get(1.0, END))
+        f.write(text2save)
+        f.close()
+
+
         """
         Permet de gérer l'enregistrement d'une liste de personnages dans le fichier courant.  
         Si on a un fichier courant, on écrit les personnages de la liste dedans 
@@ -242,6 +264,13 @@ class GestionPersonnages:
         print("On a callé la méthode gestion_enregistrer")
 
     def gestion_enregistrer_sous(self):
+        f = filedialog.asksaveasfile(mode='w', defaultextension=".txt")
+        if f is None:
+            return
+        text2save = str(text.get(1.0, END))
+        f.write(text2save)
+        f.close()
+
         """
         Permet de gérer l'enregistrement d'une liste de personnages dans un nouveau fichier.  
         On demande un nom de fichier à l’utilisateur, on l’assigne au fichier courant et on écrit 
@@ -252,6 +281,9 @@ class GestionPersonnages:
         print("On a callé la méthode gestion_enregistrer_sous")
 
     def gestion_fermer(self):
+
+
+
         """
         Permet de fermer le fichier courant. Si la liste n'est pas vide et que l'utilisateur veut sauvegarder ses 
         données, enregistrer les données de la liste dans le fichier courant (gestion_enregistrer) ou dans un 
